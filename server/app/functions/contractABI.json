@@ -1,0 +1,36 @@
+[
+    {
+        "inputs": [
+            {
+                "internalType": "string",
+                "name": "identifier",
+                "type": "string"
+            },
+            {
+                "internalType": "string",
+                "name": "iv",
+                "type": "string"
+            },
+            {
+                "internalType": "uint8",
+                "name": "secret_slot",
+                "type": "uint8"
+            },
+            {
+                "internalType": "uint64",
+                "name": "secret_version",
+                "type": "uint64"
+            }
+        ],
+        "name": "sendRequest",
+        "outputs": [
+            {
+                "internalType": "bytes32",
+                "name": "requestId",
+                "type": "bytes32"
+            }
+        ],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    }
+]

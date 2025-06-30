@@ -4,6 +4,8 @@
 
 This poject was developed for the Chainlink Chromion Hackathon in June 2025.
 
+Live Demo at: [petition3.ch](http://petition3.ch)
+
 ## Overview
 Collecting signatures is an integral part of the [popular initiatives in Switzerland](https://en.wikipedia.org/wiki/Popular_initiative_in_Switzerland), which are a democratic instrument that allows people to propose new laws (as opposed to the parliament proposing new laws).
 Collecting signatures on paper is costly and not secure - just last year a large scale signature copying/forging scheme that had compromised multiple popular initiatives was [uncovered](https://www.news.admin.ch/de/nsb?id=102581).
@@ -15,10 +17,9 @@ This is a novel application that finally proposes a DLT use case that goes beyon
 See this blog article for more details on DLT and Democracy: [Democracy 3.0](https://dss.swiss/2025/01/31/democracy-3-0/)
 
 
-## Application Details
+## Architecture
 [Here's a video](https://www.youtube.com/watch?v=p8c95uogwUM) where the application is explained.
 
-#### Explanation
 The software consists of several components. We have a backend, that coordinates the process and serves the user interface. There's a verifier that verifies the e-ID - it can be accessed through APIs from the Backend or from the Decentralized Oracle Network. In our case, we use the verifier hosted by the Swiss government. Then there's the decentralized oracle network (DON) that ensures that the e-ID is valid and that the person is eligible to sign and finally the smart contract, where the signatures are counted.
 
 ![a GIF going through the steps of the process](petition3.gif)
@@ -37,3 +38,7 @@ The software consists of several components. We have a backend, that coordinates
 11) The verifier returns the information provided by the user. The oracles enforce signature eligibility (eg. age limit) and hash the unique person identifier (SSN), which they send back to the smart contract.
 12) The smart contract checks if this unique person identifier has already been used to sign, and if not, increases the signature count by one.
 
+
+#### Chainlink usage:
+You can find the smart contract implementation here: [`contract/ecollecting.sol`](contract/ecollecting.sol)
+You can find the Chainlink functions code here: [`contract/function_code.js`](contract/function_code.js)

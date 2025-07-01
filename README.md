@@ -25,7 +25,7 @@ The software consists of several components. We have a backend, that coordinates
 ![a GIF going through the steps of the process](petition3.gif)
 
 
-1) A person opens the signature collecting webpage ([www.petition3.ch](www.petition3.ch))
+1) A person opens the signature collecting webpage ([www.petition3.ch](http://www.petition3.ch))
 2) The server triggers a new verification reqeust with the verifier.
 3) The verifier returns a verification-id, which can be used to poll the status of the verification.
 4) A QR code with a link to the verifier, including verification-id, is shown to the user.

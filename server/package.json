@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@chainlink/env-enc": "^1.0.5",
+    "@chainlink/functions-toolkit": "^0.3.2",
     "@remix-run/node": "^2.16.8",
     "@remix-run/react": "^2.16.8",
     "@remix-run/serve": "^2.16.8",

@@ -25,12 +25,13 @@ export async function loader({ request }: LoaderFunctionArgs) {
 
   // Extract the ID from the link (last part after the last '/')
   const verificationId = link ? link.replace(/\/$/, "").split("/").pop() : "";
-
-  console.log("verification id:", verificationId)
-  return json({
+  const contract_address = process.env.CONTRACT_ADDRESS
+  const page_data = {
     qrCodeBase64,
     verificationId,
-  });
+    contract_address
+  }
+  return json(page_data);
 }
 
 import { useLoaderData } from "@remix-run/react";
@@ -39,7 +40,7 @@ import QrCodeCard from "~/components/QrCodeCard";
 import SubmitCard from "~/components/SubmitCard";
 
 export default function Index() {
-  const { qrCodeBase64, verificationId } = useLoaderData<typeof loader>();
+  const { qrCodeBase64, verificationId, contract_address} = useLoaderData<typeof loader>();
   // Create a variable to track verification status
   const [isVerified, setIsVerified] = useState(false);
   const [txData, setTxData] = useState<Record<string, string> | null>(null);
@@ -175,7 +176,12 @@ export default function Index() {
           >
             popular initiatives in Switzerland
           </a>
-          {" "}on the blockchain.
+          {" "}on the blockchain (<a
+            href={`https://testnet.snowtrace.io/address/${contract_address}/contract/43113/code`}
+            className="inline-block text-blue-700 font-semibold hover:bg-blue-100 hover:rounded transition"
+            target="_blank"
+            rel="noopener noreferrer"
+          >see the smart contract here</a>).
         </div>
         <div className="max-w-md text-center text-gray-600 text-sm">
           To sign a petition (in the smart contract) you need to prove your identity with your{" "}

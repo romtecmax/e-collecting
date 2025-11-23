@@ -1,11 +1,38 @@
-// backend/app/components/QrCodeCard.tsx
-import React from "react";
-
+// ... existing imports ...
 interface QrCodeCardProps {
     qrCodeBase64: string;
+    lang?: "en" | "de" | "fr";
 }
 
-const QrCodeCard: React.FC<QrCodeCardProps> = ({ qrCodeBase64 }) => (
+const translations = {
+    "waiting": {
+        en: "Waiting for verification...",
+        de: "Warten auf Verifizierung ...",
+        fr: "En attente de vérification ..."
+    },
+    "scan": {
+        en: "Scan with the official",
+        de: "Scannen Sie mit der offiziellen",
+        fr: "Scannez avec l’application officielle"
+    },
+    "swiyu-wallet": {
+        en: "swiyu Wallet",
+        de: "swiyu Wallet",
+        fr: "swiyu Wallet"
+    },
+    "to-cast": {
+        en: "App to cast a verified vote on the blockchain.",
+        de: "App, um eine verifizierte Stimme auf der Blockchain abzugeben.",
+        fr: "App pour émettre un vote vérifié sur la blockchain."
+    },
+    "more-info": {
+        en: "More information on the swiyu wallet:",
+        de: "Mehr Informationen zur swiyu Wallet:",
+        fr: "Plus d’informations sur le portefeuille swiyu :"
+    }
+};
+
+const QrCodeCard: React.FC<QrCodeCardProps> = ({ qrCodeBase64, lang = "en" }) => (
     <div className="w-full flex flex-col items-center bg-white rounded-2xl shadow-lg p-4 transition-transform duration-200 hover:scale-105">
         {qrCodeBase64 ? (
             <img
@@ -25,12 +52,11 @@ const QrCodeCard: React.FC<QrCodeCardProps> = ({ qrCodeBase64 }) => (
                     <circle className="opacity-20" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
                     <path className="origin-center" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" d="M12 2a10 10 0 0 1 10 10" style={{ opacity: 0.7 }} />
                 </svg>
-                Waiting for verification...
+                {translations.waiting[lang]}
             </span>
         </div>
         <h1 className="text-center mb-3 text-gray-900">
-            Scan with the official <strong>swiyu Wallet</strong> App to cast a verified vote on the blockchain.
-
+            {translations.scan[lang]} <strong>{translations["swiyu-wallet"][lang]}</strong> {translations["to-cast"][lang]}
             <span className="relative inline-block ml-2 align-middle group">
                 {/* Info icon */}
                 <a
@@ -41,6 +67,7 @@ const QrCodeCard: React.FC<QrCodeCardProps> = ({ qrCodeBase64 }) => (
                     className="text-blue-500 hover:text-blue-700 align-middle inline-flex items-center"
                     style={{ verticalAlign: "middle" }}
                 >
+                    {/* ...SVG icon... */}
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="16"
@@ -61,10 +88,9 @@ const QrCodeCard: React.FC<QrCodeCardProps> = ({ qrCodeBase64 }) => (
                 </a>
                 {/* Tooltip */}
                 <span className="absolute left-1/2 -translate-x-1/2 bottom-full mb-2 w-max px-2 py-1 rounded bg-gray-800 text-white text-xs opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-10">
-                    More information on the swiyu wallet: https://www.eid.admin.ch/en/public-beta-e
+                    {translations["more-info"][lang]} https://www.eid.admin.ch/en/public-beta-e
                 </span>
             </span>
-
         </h1>
     </div>
 );

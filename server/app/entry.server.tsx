@@ -5,7 +5,7 @@
  */
 
 async function setup() {
-  await import('@chainlink/env-enc').then((mod) => mod.config());
+  // await import('@chainlink/env-enc').then((mod) => mod.config());
   await import('@chainlink/functions-toolkit');
 }
 setup();

@@ -181,3 +181,4 @@ cython_debug/
 .cursorindexingignore
 node_modules
 .env.enc
+build.sh

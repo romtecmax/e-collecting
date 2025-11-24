@@ -160,57 +160,56 @@ const getInfoContent = (contractAddress: string) => ({
             {
                 content: (
                     <>
-                        Cette application est une preuve de concept pour la collecte de « signatures » pour les{" "}
-                        <a
-                            href="https://fr.wikipedia.org/wiki/Initiative_populaire_f%C3%A9d%C3%A9rale_(Suisse)"
-                            className="inline-block text-blue-700 font-semibold hover:bg-blue-100 hover:rounded px-1 transition"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            initiatives populaires
-                        </a>
-                        {" "}en Suisse sur la  {" "}
+                        Cette application constitue une preuve de concept (ou "proof of concept") pour la collecte de signatures basée sur{" "}
                         <a
                             href={`https://testnet.snowtrace.io/address/${contractAddress}/contract/43113/code`}
                             className="inline-block text-blue-700 font-semibold hover:bg-blue-100 hover:rounded transition"
                             target="_blank"
                             rel="noopener noreferrer"
                         >
-                            blockchain
+                            la chaîne de blocs
+                        </a>{" "}(ou "blockchain") dans le cadre de pétitions, de référendums et{" "}
+                        <a
+                            href="https://fr.wikipedia.org/wiki/Initiative_populaire_en_Suisse"
+                            className="inline-block text-blue-700 font-semibold hover:bg-blue-100 hover:rounded px-1 transition"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            d’initiatives populaires
                         </a>
-                        .
+                        {" "}en Suisse.
                     </>
                 )
             },
             {
                 content: (
                     <>
-                        Pour signer une pétition (dans le smart contract), vous devez prouver votre identité avec votre{" "}
+                        Pour qu’une signature soit valable et reconnue, votre identité est vérifiée et validée dans le contrat intelligent (ou « smart contract ») à l’aide de votre
                         <a
                             href="https://www.eid.admin.ch/"
                             className="inline-block text-blue-600 font-semibold hover:bg-blue-100 hover:rounded px-1 transition"
                             target="_blank"
                             rel="noopener noreferrer"
-                        >
-                            e-ID suisse
+                            >
+                           e-ID suisse
                         </a>
-                        . L'e-ID suisse est actuellement en BÊTA, donc tout le monde peut{" "}
+                        . La e-ID suisse est actuellement en version BÊTA, ce qui permet à toute personne intéressée
                         <a
                             href="https://www.bcs.admin.ch/bcs-web/#/"
                             className="inline-block text-blue-600 font-semibold hover:bg-blue-100 hover:rounded px-1 transition"
                             target="_blank"
                             rel="noopener noreferrer"
-                        >
-                            créer une e-ID BÊTA
+                            >
+                            d’en créer une
                         </a>
-                        {" "}pour interagir avec le smart contract.
+                        {" "}afin d’interagir avec le contrat intelligent.
                     </>
                 )
             },
             {
                 content: (
                     <>
-                        Voir cet article de blog pour plus de détails sur le concept :{" "}
+                         Veuillez-vous référer au blog ci-dessous pour plus d'informations sur ce concept sûr, simple et innovant:
                         <a
                             href="https://dss.swiss/2025/01/31/democracy-3-0/"
                             className="inline-block text-blue-700 font-semibold hover:bg-blue-100 hover:rounded px-1 transition"

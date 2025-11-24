@@ -9,6 +9,13 @@ declare module "@remix-run/node" {
 }
 
 export default defineConfig({
+  server: {
+  allowedHosts: [
+      "ecollecting-apdcbqfva7a4a4gc.switzerlandnorth-01.azurewebsites.net",
+      "petition3.ch",
+      "www.petition3.ch"
+    ]
+  },
   plugins: [
     remix({
       future: {

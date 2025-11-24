@@ -1,0 +1,10 @@
+name: ecollecting-dev
+services:
+
+  frontend:
+    image: ecollecting.azurecr.io/ecollecting:latest
+    container_name: ecollecting
+    env_file:
+      - server/.env
+    ports: 
+      - 8081:5173
